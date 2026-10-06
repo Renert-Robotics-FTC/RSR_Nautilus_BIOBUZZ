@@ -36,11 +36,22 @@ public class DriveTrainAlina{
     //Acc moving
     //front+back, strife, rotating
     //strife=sideways(left or right)
-    public void drive (double forward, double strafe, double rotation){
-            double frontLeftPower=forward+strafe+rotation;
-            double backLeftPower=forward-strafe+rotation;
-            double frontRightPower=forward-strafe-rotation;
-            double backRightPower=forward+strafe-rotation;
+
+
+
+    public void drive (double forward, double strafe, double rotation,double heading){
+
+        double robotForward=
+                forward*Math.cos(heading)
+                        +strafe*Math.sin(heading);
+        double robotStrafe=
+                -forward*Math.sin(heading)
+                        +strafe*Math.cos(heading);
+
+            double frontLeftPower=robotForward+robotStrafe+rotation;
+            double backLeftPower=robotForward-robotStrafe+rotation;
+            double frontRightPower=robotForward-robotStrafe-rotation;
+            double backRightPower=robotForward+robotStrafe-rotation;
 
 //restrict the values so their absv is 1
         double max=Math.max(
@@ -58,7 +69,7 @@ public class DriveTrainAlina{
         frontLeft.setPower(frontLeftPower);
         backLeft.setPower(backLeftPower);
         frontRight.setPower(frontRightPower);
-        backLeft.setPower(backLeftPower);
+        backRight.setPower(backRightPower);
 
 
     }
