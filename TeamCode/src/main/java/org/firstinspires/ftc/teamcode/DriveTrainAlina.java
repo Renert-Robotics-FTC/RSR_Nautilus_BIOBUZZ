@@ -33,6 +33,36 @@ public class DriveTrainAlina{
 
 
         }
+    //Acc moving
+    //front+back, strife, rotating
+    //strife=sideways(left or right)
+    public void drive (double forward, double strafe, double rotation){
+            double frontLeftPower=forward+strafe+rotation;
+            double backLeftPower=forward-strafe+rotation;
+            double frontRightPower=forward-strafe-rotation;
+            double backRightPower=forward+strafe-rotation;
+
+//restrict the values so their absv is 1
+        double max=Math.max(
+                Math.max(Math.abs(frontLeftPower),Math.abs(frontRightPower)),
+                Math.max(Math.abs(backLeftPower),Math.abs(backRightPower))
+        );
+
+        if (max>1.0){
+            frontLeftPower /=max;
+            backLeftPower /=max;
+            frontRightPower /=max;
+            backRightPower /=max;
+        }
+
+        frontLeft.setPower(frontLeftPower);
+        backLeft.setPower(backLeftPower);
+        frontRight.setPower(frontRightPower);
+        backLeft.setPower(backLeftPower);
+
+
+    }
+
         //field centric now :)
 
 }
