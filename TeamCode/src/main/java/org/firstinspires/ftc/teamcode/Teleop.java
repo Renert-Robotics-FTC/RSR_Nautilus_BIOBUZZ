@@ -12,8 +12,13 @@ public class Teleop extends LinearOpMode {
 
     private DriveTrainAlina driveTrain;
     private Telemetry telemetry;
+    private boolean previousA = false;
+    private boolean gyro = false;
 
     private boolean previousOptions = false;
+    public double speed = 1;
+    public double slowspeed = 0.5;
+    public double fastspeed = 1;
 
     @Override
     public void runOpMode() {
@@ -23,7 +28,7 @@ public class Teleop extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
-            double speed = gamepad1.left_bumper ? 0.4 : 1.0;
+            speed = gamepad1.left_bumper ? slowspeed : fastspeed;
 
 
             double forward = -gamepad1.left_stick_y;
@@ -40,16 +45,18 @@ public class Teleop extends LinearOpMode {
             telemetry.addData("Forward",forward);
             telemetry.addData("Strafe",strafe);
             telemetry.addData("Rotation",rotation);
-            telemetry.addData("Speed",speed);
+            if (speed == slowspeed) {
+                telemetry.addLine("slow mode enabled");
+            } else if (speed == fastspeed){
+                telemetry.addLine("fast mode enabled");
+            }
             telemetry.update();
 
 
-            if (gamepad1.options && previousOptions) {
+            if (gamepad1.a && !previousA) {
                 driveTrain.resetHeading();
             }
-            previousOptions=gamepad1.options;
-            //making it trigger while pressed
-
+            previousA = gamepad1.a;
             driveTrain.stop();
 
         }
