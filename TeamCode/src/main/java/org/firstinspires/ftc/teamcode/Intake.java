@@ -7,16 +7,13 @@ public class Intake {
     private static DcMotor intake;
 
     public Intake(HardwareMap hardwareMap) {
-        intake = hardwareMap.get(DcMotor.class, "catapult1");
+        intake = hardwareMap.get(DcMotor.class, "intake");
         intake.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         intake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
 
     public static void Intakeforward() {
-        intake.setPower(1);
-    }
-    public static void Intakebackward() {
-        intake.setPower(-1);
+        intake.setPower(0.5);
     }
     public static void Intakestop() {
         intake.setPower(0);
