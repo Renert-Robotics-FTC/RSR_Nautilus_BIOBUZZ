@@ -34,10 +34,12 @@ public class teleop extends OpMode {
         }
         if (gamepad1.x) {
             intakky.Intakeforward();
-        } else {
+        } else if (gamepad1.y) {
+            intakky.Intakebackward();
+        }else {
             intakky.Intakestop();
         }
-        drivey.drive(gamepad1.left_stick_y, -gamepad1.left_stick_x, gamepad1.right_stick_x, 1);
+        drivey.drive(gamepad1.left_stick_y, -gamepad1.left_stick_x, -gamepad1.right_stick_x, 1);
 
         telemetry.update();
     }

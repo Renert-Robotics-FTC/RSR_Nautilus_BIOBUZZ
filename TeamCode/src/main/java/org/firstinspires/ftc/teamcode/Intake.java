@@ -13,7 +13,10 @@ public class Intake {
     }
 
     public static void Intakeforward() {
-        intake.setPower(0.5);
+        intake.setPower(1);
+    }
+    public static void Intakebackward() {
+        intake.setPower(-1);
     }
     public static void Intakestop() {
         intake.setPower(0);
