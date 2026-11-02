@@ -28,7 +28,7 @@ public class OdometryAlina extends LinearOpMode {
                 "odo"
         );
 
-        // Set the physical offsets (offsets tell where the tracking wheels are mounted in relative to the ref. point
+        // Set the physical offsets (offsets tell where the tracking wheels are mounted in relative to the ref. point)
         pinpoint.setOffsets(0,0, DistanceUnit.CM);
 
         // Configure odometry pod setup

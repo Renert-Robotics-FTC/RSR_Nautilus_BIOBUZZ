@@ -14,9 +14,6 @@ public class DriveTrainAlina{
 
     private double headingOffset =0;
 
-    public DriveTrainAlina(HardwareMap hardwareMap) {
-    }
-
     public void resetHeading() {
         headingOffset =
                 pinpoint.getPosition().getHeading(AngleUnit.RADIANS);
@@ -67,7 +64,7 @@ public class DriveTrainAlina{
             frontRight.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
             backRight.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
 
-            //deadband=NPV non permissable values in code
+            //deadband=NPV non permissible values in code
 
 
         }
