@@ -7,7 +7,7 @@ public class Intake {
     private static DcMotor intake;
 
     public Intake(HardwareMap hardwareMap) {
-        intake = hardwareMap.get(DcMotor.class, "catapult1");
+        intake = hardwareMap.get(DcMotor.class, "intake");
         intake.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         intake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
