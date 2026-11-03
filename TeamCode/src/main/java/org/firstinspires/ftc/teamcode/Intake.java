@@ -12,13 +12,16 @@ public class Intake {
         intake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
 
-    public static void Intakeforward() {
+
+    public static void forward(){
         intake.setPower(1);
     }
-    public static void Intakebackward() {
+
+    public static void backwards(){
         intake.setPower(-1);
     }
-    public static void Intakestop() {
+
+    public static void stop(){
         intake.setPower(0);
     }
 }
