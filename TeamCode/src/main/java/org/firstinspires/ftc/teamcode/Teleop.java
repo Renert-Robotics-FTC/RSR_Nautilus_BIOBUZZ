@@ -57,9 +57,9 @@ public class Teleop extends LinearOpMode {
 
             // HEADING RESET
 
-            if (gamepad1.a && !previousA) {
-                driveTrain.resetHeading();
-            }
+            //if (gamepad1.a && !previousA) {
+                //driveTrain.resetHeading();
+            //}
 
             previousA = gamepad1.a;
 

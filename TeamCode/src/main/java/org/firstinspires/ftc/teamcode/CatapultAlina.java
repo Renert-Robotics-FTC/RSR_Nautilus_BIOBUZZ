@@ -5,8 +5,8 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 public class CatapultAlina {
-    private static DcMotor catapultMotor1;
-    private static DcMotor catapultMotor2;
+    private static DcMotor catapult1;
+    private static DcMotor catapult2;
     private ElapsedTime timer=new ElapsedTime();
 
     private enum state {
@@ -22,30 +22,30 @@ public class CatapultAlina {
     //Constructors now yay
 
     public CatapultAlina (HardwareMap hardwareMap){
-        catapultMotor1=hardwareMap.get(DcMotor.class, "catapultMotor1");
-        catapultMotor2=hardwareMap.get(DcMotor.class, "catapultMotor2");
-        catapultMotor1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        catapultMotor1.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        catapultMotor2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        catapultMotor2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        catapult1=hardwareMap.get(DcMotor.class, "catapult1");
+        catapult2=hardwareMap.get(DcMotor.class, "catapult2");
+        catapult1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        catapult1.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        catapult2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        catapult2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
     }
 
     //Methods so it shoots kaboom kabbam yay
 
     public static void catapultShooting(){
-        catapultMotor1.setPower(1);
-        catapultMotor2.setPower(-1);
+        catapult1.setPower(-1);
+        catapult2.setPower(1);
     }
 
     public static void catapultRetracting(){
-        catapultMotor1.setPower(-1);
-        catapultMotor2.setPower(1);
+        catapult1.setPower(1);
+        catapult2.setPower(-1);
     }
 
     public static void catapultStops(){
-        catapultMotor1.setPower(0);
-        catapultMotor2.setPower(0);
+        catapult1.setPower(0);
+        catapult2.setPower(0);
     }
 
 
