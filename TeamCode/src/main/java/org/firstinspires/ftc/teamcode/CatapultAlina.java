@@ -48,31 +48,6 @@ public class CatapultAlina {
         catapultMotor2.setPower(0);
     }
 
-    //starting a cycle
-     public void startingShooting(){
-        if (currentState==state.IDLE) {
-            timer.reset();
-            currentState=state.SHOOTING;
-        }
-    }
-
-    //uhh update and sync?
-
-    public void update(){
-        switch (currentState){
-            case IDLE:
-            catapultStops();
-            break;
-
-            case SHOOTING:
-                catapultShooting();
-                if (timer.seconds()>=shootTime){
-                    catapultStops();
-                    currentState=state.IDLE;
-                }
-                break;
-        }
-    }
 
 
 }
