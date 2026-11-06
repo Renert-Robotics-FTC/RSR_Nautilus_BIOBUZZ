@@ -60,14 +60,14 @@ public class DriveTrainAlina {
                 )
         );
     }
-    public void drive (double forward, double strafe, double rotation, double speed){
+    public void drive(double forward, double strafe, double rotation, double speed){
 
         forward=applyDeadband(forward);
         strafe=applyDeadband(strafe);
         rotation=applyDeadband(rotation);
 
         YawPitchRollAngles orientation = imu.getRobotYawPitchRollAngles();
-        double yaw = orientation.getYaw(AngleUnit.RADIANS);
+        double yaw = 0;
 
         double robotForward=
                 forward*Math.cos(yaw)
