@@ -1,3 +1,4 @@
+
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -5,31 +6,43 @@ import com.qualcomm.hardware.gobilda.GoBildaPinpointDriver;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
+
 public class Odometry {
+
     private GoBildaPinpointDriver odometry;
 
-    public void initializeOdometry(HardwareMap hardwareMap){
-        odometry = hardwareMap.get(GoBildaPinpointDriver.class, "odo");
+    public void initializeOdometry(HardwareMap hardwareMap) {
+
+        odometry = hardwareMap.get(
+                GoBildaPinpointDriver.class,
+                "odo"
+        );
+
+        // Physical offsets
         odometry.setOffsets(-120.0, -30.0, DistanceUnit.MM);
-        odometry.setEncoderResolution(GoBildaPinpointDriver.GoBildaOdometryPods.goBILDA_4_BAR_POD);
+
+        // Configure odometry pods
+        odometry.setEncoderResolution(
+                GoBildaPinpointDriver.GoBildaOdometryPods.goBILDA_4_BAR_POD
+        );
+
+        // Reset starting position and Pinpoint IMU
         odometry.resetPosAndIMU();
     }
 
-    public void updateOdometry(){
-        odometry.update(); //updates data
+    public void updateOdometry() {
+        odometry.update();
     }
 
-    //methods for other classes to access odometry data
-    public double getxPos(){
-        double xpos = odometry.getPosX(DistanceUnit.MM);
-        return xpos;
+    public double getxPos() {
+        return odometry.getPosX(DistanceUnit.MM);
     }
-    public double getyPos(){
-        double ypos = odometry.getPosY(DistanceUnit.MM);
-        return ypos;
+
+    public double getyPos() {
+        return odometry.getPosY(DistanceUnit.MM);
     }
-    public double getHeading(){
-        double heading = odometry.getHeading(AngleUnit.DEGREES);
-        return heading;
+
+    public double getHeading() {
+        return odometry.getHeading(AngleUnit.DEGREES);
     }
 }
