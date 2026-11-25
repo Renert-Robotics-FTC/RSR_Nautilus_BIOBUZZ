@@ -108,6 +108,12 @@ public class Teleop extends LinearOpMode {
                 }
             }
 
+            telemetry.addData("Servo 1 Position",
+                    intakeFlower.getServo1Position());
+
+            telemetry.addData("Servo 2 Position",
+                    intakeFlower.getServo2Position());
+
             previousB = gamepad1.b;
 
             // TELEMETRY

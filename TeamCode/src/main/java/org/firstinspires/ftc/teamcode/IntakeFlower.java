@@ -25,4 +25,13 @@ public class IntakeFlower {
         Servo1.setPosition(0);
         Servo2.setPosition(1);
     }
+
+    public double getServo1Position(){
+        return Servo1.getPosition();
+    }
+
+    public double getServo2Position(){
+        return Servo2.getPosition();
+    }
+
 }
