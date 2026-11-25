@@ -14,11 +14,16 @@ public class Teleop extends LinearOpMode {
     private IntakeAlina intake;
     private Odometry odometry;
 
+    private IntakeFlower intakeFlower;
+
     private double speed = 1;
     private double slowspeed = 0.5;
     private double fastspeed = 1;
 
     private boolean shoot = false;
+
+    private boolean isOpen = false;
+    private boolean previousB = false;
 
     private ElapsedTime timer = new ElapsedTime();
 
@@ -28,6 +33,7 @@ public class Teleop extends LinearOpMode {
         driveTrain = new DriveTrainAlina(hardwareMap, telemetry);
         catapult = new CatapultAlina(hardwareMap);
         intake = new IntakeAlina(hardwareMap);
+        intakeFlower=new IntakeFlower(hardwareMap);
 
         // Initialize Pinpoint
         odometry = new Odometry();
@@ -52,7 +58,7 @@ public class Teleop extends LinearOpMode {
             // DRIVETRAIN
             speed = gamepad1.left_bumper ? slowspeed : fastspeed;
 
-            double forward = -gamepad1.left_stick_y;
+            double forward = gamepad1.left_stick_y;
             double strafe = gamepad1.left_stick_x;
             double rotation = gamepad1.right_stick_x;
 
@@ -90,6 +96,20 @@ public class Teleop extends LinearOpMode {
                 intake.stop();
             }
 
+            // INTAKE FLOWER TOGGLE
+            if (gamepad1.b && !previousB) {
+
+                isOpen = !isOpen;
+
+                if (isOpen) {
+                    intakeFlower.open();
+                } else {
+                    intakeFlower.close();
+                }
+            }
+
+            previousB = gamepad1.b;
+
             // TELEMETRY
             telemetry.addData("X Position (mm)", x);
             telemetry.addData("Y Position (mm)", y);
@@ -112,4 +132,6 @@ public class Teleop extends LinearOpMode {
 
         driveTrain.stop();
     }
+
 }
+

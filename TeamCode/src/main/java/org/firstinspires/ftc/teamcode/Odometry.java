@@ -19,7 +19,7 @@ public class Odometry {
         );
 
         // Physical offsets
-        odometry.setOffsets(-120.0, -30.0, DistanceUnit.MM);
+        odometry.setOffsets(0, 150.0, DistanceUnit.MM);
 
         // Configure odometry pods
         odometry.setEncoderResolution(
@@ -43,6 +43,6 @@ public class Odometry {
     }
 
     public double getHeading() {
-        return odometry.getHeading(AngleUnit.DEGREES);
+        return -odometry.getHeading(AngleUnit.DEGREES);
     }
 }

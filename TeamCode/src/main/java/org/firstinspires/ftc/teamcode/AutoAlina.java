@@ -29,7 +29,7 @@ public class AutoAlina extends LinearOpMode {
 
         // 2. DRIVE FORWARD
         if (opModeIsActive()) {
-            driveTrain.drive(1, 0, 0, 0.5);
+            driveTrain.drive (1, 0, 0, 0.5, 1);
             sleep(1000);
         }
 
