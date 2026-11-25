@@ -102,9 +102,9 @@ public class Teleop extends LinearOpMode {
                 isOpen = !isOpen;
 
                 if (isOpen) {
-                    intakeFlower.open();
+                    intakeFlower.Open();
                 } else {
-                    intakeFlower.close();
+                    intakeFlower.Close();
                 }
             }
 
