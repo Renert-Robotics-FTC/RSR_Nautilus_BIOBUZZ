@@ -38,5 +38,3 @@ public class AutoAlina extends LinearOpMode {
         CatapultAlina.catapultStops();
     }
 }
-
-
