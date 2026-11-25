@@ -45,7 +45,7 @@ public class DriveTrainAlina {
     public void drive(double forward, double strafe,
                       double rotation, double heading, double speed) {
 
-        forward = applyDeadband(forward);
+        forward = -applyDeadband(forward);
         strafe = applyDeadband(strafe);
         rotation = applyDeadband(rotation);
 
