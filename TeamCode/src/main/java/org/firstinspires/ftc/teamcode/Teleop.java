@@ -1,4 +1,3 @@
-
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -66,8 +65,7 @@ public class Teleop extends LinearOpMode {
                     forward,
                     strafe,
                     rotation,
-                    heading,
-                    speed
+                    heading
             );
 
             // CATAPULT
@@ -140,4 +138,3 @@ public class Teleop extends LinearOpMode {
     }
 
 }
-

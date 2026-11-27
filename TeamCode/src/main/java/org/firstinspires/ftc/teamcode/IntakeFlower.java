@@ -17,13 +17,13 @@ public class IntakeFlower {
     }
 
     public void Open() {
-        Servo1.setPosition(1);
-        Servo2.setPosition(0);
+        Servo1.setPosition(0.75);
+        Servo2.setPosition(0.25);
     }
 
     public void Close(){
-        Servo1.setPosition(0);
-        Servo2.setPosition(1);
+        Servo1.setPosition(0.25);
+        Servo2.setPosition(0.75);
     }
 
     public double getServo1Position(){
